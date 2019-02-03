@@ -33,7 +33,7 @@ movePos IO::GetMove()
 
 void IO::DrawBoard(const map& board)
 {
-	size_t boardSize = sqrt(board.size());
+	size_t boardSize = size_t(sqrt(board.size()));
 	for (size_t i = 0; i < boardSize; i++) {
 		std::cout << i << "|";
 		for (size_t j = 0; j < boardSize; j++) {

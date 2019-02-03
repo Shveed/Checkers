@@ -1,6 +1,10 @@
 #pragma once
 #include"Board.h"
 #include "IO.h"
+#include "Cell.h"
+#include <vector>
+
+using movePos = std::pair<pos, pos>;
 
 class Game
 {
@@ -10,6 +14,8 @@ public:
 	~Game();
 	Player GetWinner() const;
 	void Start();
+	bool MonteCarlo();
+
 private:
 	bool GetDirection() const;
 	movePos MakeIO();
@@ -21,5 +27,8 @@ private:
 	bool bIsSurrender;
 	Board mboard;
 	IO mIO;
+
+	Player mPlayer = Player::WHITE;
+	
 };
 

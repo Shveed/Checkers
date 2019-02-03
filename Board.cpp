@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Board.h"
 
-
 Board::Board() : mBoardSize(8)
 {
 }
@@ -38,8 +37,6 @@ void Board::ResetMap()
 				state = Cell::State::BLACK;
 			}
 			
-
-
 			const pos position = pos(i, j);
 			Cell cell = Cell(state);
 			mCells.insert({ std::move(position), std::move(cell) });
@@ -92,4 +89,20 @@ Board::MoveResult Board::MakeMove(const pos & startPos, const pos & endPos, bool
 		break;
 	}
 	return moveResult;
+
 }
+
+bool Board::isEndReached(bool direction, pos position, size_t Size)
+{
+	if (direction) {
+		if (position.second == Size) { return true; }
+		return false;
+	}
+	else {
+		if (position.second == 0) { return true; }
+		return false;
+	}
+}
+
+
+
